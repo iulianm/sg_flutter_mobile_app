@@ -1,22 +1,23 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sg_flutter_mobile_app/model/phrase.dart';
-import 'package:sg_flutter_mobile_app/ui/phrase_ui.dart';
 
-class PhraseListView extends StatelessWidget {
-  final List<Phrase> phraseList = Phrase.getPhrases();
+class PhraseListViewDetails extends StatelessWidget {
+  final Phrase phrase;
+
+  const PhraseListViewDetails({Key key, this.phrase})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.blue[100],
-        appBar: AppBar(title: Text("B1 | Finance | Phrases")),
+        appBar: AppBar(title: Text("B1 | Finance | Phrase Details")),
         body: ListView.builder(
-            itemCount: phraseList.length,
+            itemCount: phrase.phraseElements.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding:
-                    const EdgeInsets.only(top: 8, bottom: 8, left: 6, right: 6),
+                const EdgeInsets.only(top: 8, bottom: 0, left: 6, right: 6),
                 child: Card(
                   elevation: 4.5,
                   shape: RoundedRectangleBorder(
@@ -24,16 +25,16 @@ class PhraseListView extends StatelessWidget {
                   ),
                   child: InkWell(
                       splashColor: Colors.blue[100],
-                      onTap: () => {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PhraseListViewDetails(
-                                        phrase: phraseList[index])))
-                          },
+                      /*onTap: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PhraseListViewDetails(
+                                    sentence: phrase.phraseElements[index])))
+                      },*/
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Text(phraseList[index].text,
+                        child: Text(phrase.phraseElements[index].text,
                             style: TextStyle(fontSize: 19)),
                       )),
                 ),
