@@ -1,5 +1,9 @@
 class Word {
-  String text;
+  String wordText;
+  String wordMorphologicalValue;
+  String wordComplexityLevel;
+  String wordDictionaryDefinition;
 
-  Word(this.text);
+  Word(this.wordText, this.wordMorphologicalValue, this.wordComplexityLevel,
+      this.wordDictionaryDefinition);
 }

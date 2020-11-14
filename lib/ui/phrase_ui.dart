@@ -13,7 +13,7 @@ class PhraseListViewDetails extends StatelessWidget {
         backgroundColor: Colors.blue[100],
         appBar: AppBar(title: Text("B1 | Finance | Phrase Details")),
         body: ListView.builder(
-            itemCount: phrase.phraseElements.length,
+            itemCount: phrase.phraseComponents.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding:
@@ -34,8 +34,7 @@ class PhraseListViewDetails extends StatelessWidget {
                       },*/
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Text(phrase.phraseElements[index].text,
-                            style: TextStyle(fontSize: 19)),
+                        child: phraseComponent(),
                       )),
                 ),
               );
